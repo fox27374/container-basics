@@ -9,7 +9,7 @@
 ## Tasks
 ### 1. Create a new file called Dockerfile and paste the content
 **`vi Dockerfile`**  
-```
+```dockerfile
 FROM nginx:latest
 COPY index.html /usr/share/nginx/html/index.html
 ```
