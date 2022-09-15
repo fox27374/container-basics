@@ -8,7 +8,7 @@
 | echo | display input on stdout |
 ---
 
-https://docs.docker.com/engine/install/debian/
+Please check the official documentation for any updates: [Install Docker](https://docs.docker.com/engine/install/debian/)
 
 ## Tasks
 ### 1. Update the apt repository
