@@ -12,7 +12,7 @@ This guide is inteded to be used during a instructor-led training. Some chapters
 6) [Bind mount](doc/Labguide/bind-mount.md)
 7) [Build image advanced](doc/Labguide/build-image-advanced.md)
 8) [Push to dockerhub](doc/Labguide/push-to-dockerhub.md)
-9) [Nwetwork and DNS](doc/Labguide/network-and-dns.md)
+9) [Network and DNS](doc/Labguide/network-and-dns.md)
 10) [Docker Compose](doc/Labguide/docker-compose.md)
 
 
