@@ -6,6 +6,9 @@ This guide is inteded to be used during a instructor-led training. Some chapters
 0) [Install Docker](doc/Labguide/install-docker.md)
 1) [Prepare user](doc/Labguide/prepare-user.md)
 2) [Run first container](doc/Labguide/run-first-container.md)
+3) [Inspect images](doc/Labguide/inspect-images.md)
+4) [Build image](doc/Labguide/build-image.md)
+5) [Change data](doc/Labguide/change-data.md)
 
 
 All commands are tested and based on [Debian 11](https://www.debian.org/). IP addresses and FQDN names are internal lab IPs and names.
