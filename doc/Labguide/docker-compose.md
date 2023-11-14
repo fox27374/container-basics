@@ -4,7 +4,13 @@
 | --- | --- |
 | docker | image and container command line interface |
 ---
-
+```
+FROM splunk/splunk:latest
+WORKDIR /opt/splunk/etc/apps
+USER root
+RUN wget https://botsdataset.s3.amazonaws.com/botsv3/botsv3_data_set.tgz
+RUN tar -xvf botsv3_data_set.tgz
+```
 ## Tasks
 ### 1. Create a file named **docker-compose.yaml** and paste the following content
 ```yaml
