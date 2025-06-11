@@ -10,7 +10,7 @@
 ### 1. Create a new file called **ping.sh** in with the content
 **`vi ping.sh`**
 ```bash
-#!/bin/ss
+#!/bin/sh
 ping www.google.at
 ```
 
