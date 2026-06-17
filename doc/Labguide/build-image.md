@@ -2,7 +2,7 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker | image and container command line interface |
+| podman | image and container command line interface |
 | vi | the best editor out there |
 ---
 Files can be found here: [Lab02](lab/02)
@@ -60,16 +60,16 @@ COPY index.html /usr/share/nginx/html/index.html
 ```
 
 ### 3. Build the new image and add a tag
-**`docker build -t nginx:nts .`**
+**`podman build -t nginx:nts .`**
 
 ### 4. List the newly created image 
-**`docker image ls`**
+**`podman image ls`**
 
 ### 5. Stop and delete all running containers
-**`docker stop CONTAINER_NAME`**\
-**`docker container prune`**
+**`podman stop CONTAINER_NAME`**\
+**`podman container prune`**
 
 ### 6. Run a container based on the newly created image
-**`docker run -d -p 8080:80 --name web nginx:nts`**
+**`podman run -d -p 8080:80 --name web nginx:nts`**
 
 ### 7. Check if the index.html file is displayed in the browser 
