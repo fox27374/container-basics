@@ -17,7 +17,7 @@
 **`mv index.html web-content/`**
 
 ### 3. Start a container with a bind mount 
-**`podman run -d -p 8080:80 -v $(pwd)/web-content:/usr/share/nginx/html --name web nginx`**
+**`podman run -d -p 8080:80 -v $(pwd)/web-content:/usr/share/nginx/html --name web docker.io/nginx:alpine`**
 
 ### 4. Check if the index.html file is displayed in the browser 
 
