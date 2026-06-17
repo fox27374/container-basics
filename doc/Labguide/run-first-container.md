@@ -2,48 +2,48 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker | image and container command line interface |
-| netstat| list network information |
+| podman | image and container command line interface |
+| ss | list network information |
 | curl | tool to interact with websites |
 ---
 
 ## Tasks
 ### 1. Run an nginx container
-**`docker run -d nginx`**  
+**`podman run -d docker.io/nginx`**  
 
 ### 2. Get the container details
-**`docker container ls`**  
+**`podman container ls`**  
 
 ### 3. Check the open ports 
-**`netstat -tulpn`**
+**`ss -tulpn`**
 
 ### 4. Stop the container 
-**`docker stop CONTAINER_NAME`**
+**`podman stop CONTAINER_NAME`**
 
 ### 5. Display all containers
-**`docker container ls -a`**
+**`podman container ls -a`**
 
 ### 6. Start the stopped container 
-**`docker start CONTAINER_ID`**
+**`podman start CONTAINER_ID`**
 
 ### 7. Check the running container 
-**`docker ps`**
+**`podman ps`**
 
 ### 8. Stop and delete the container 
-**`docker stop CONTAINER_NAME`**\
-**`docker container prune`**
+**`podman stop CONTAINER_NAME`**\
+**`podman container prune`**
 
 ### 9. Display all containers
-**`docker container ls -a`**
+**`podman container ls -a`**
 
 ### 10. Create a new container with port forwarding
-**`docker run -d -p 8080:80 nginx`**
+**`podman run -d -p 8080:80 docker.io/nginx`**
 
 ### 11. Display the running containers to check the port forwarding
-**`docker ps`**
+**`podman ps`**
 
 ### 12. Check the open ports
-**`netstat -tulpn | grep 80`**
+**`ss -tulpn | grep 8080`**
 
 ### 13. Try if the webserver is answering
 **`curl localhost:8080`**
