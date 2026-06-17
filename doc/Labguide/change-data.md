@@ -2,7 +2,7 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker | image and container command line interface |
+| podman | image and container command line interface |
 | vi | the best editor out there |
 | cd | change directory |
 | cat | concatenate file contents |
@@ -11,7 +11,7 @@
 
 ## Tasks
 ### 1. Open an interactive shell
-**`docker exec -it web /bin/bash`**  
+**`podman exec -it web /bin/sh`**  
 
 ### 2. Navigate to the webserver root directory
 **`cd /usr/share/nginx/html`**
