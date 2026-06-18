@@ -1,3 +1,12 @@
+# Compose
+## Commands
+| Command | Description |
+| --- | --- |
+| podman | image and container command line interface |
+---
+## Tasks
+### 1. Create a file named **compose.yaml** with the following content
+```yaml
 services:
   wordpress:
     image: docker.io/wordpress:7.0.0-php8.3-apache
@@ -26,3 +35,17 @@ services:
 volumes:
   wordpress:
   db:
+```
+
+### 2. Bring the application up
+**`podman-compose up -d`**  
+
+### 3. Inspect the containers and networks
+**`podman ps`**\
+**`podman network ls`**
+
+### 4. Check the website of the container and finish the Wordpress setup
+
+### 5. Delete the application
+**`podman compose down`**
+
