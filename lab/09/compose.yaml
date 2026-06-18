@@ -1,0 +1,15 @@
+services:
+  web1:
+    image: "docker.io/nginx:alpine"
+    volumes:
+      - "$(pwd)/web-content:/usr/share/nginx/html"
+    ports:
+      - "8080:80"
+
+  web2:
+    build:
+      dockerfile: Containerfile
+
+  alpine:
+    image: "docker.io/alpine:latest"
+    entrypoint: ["/usr/bin/tail", "-f", "/dev/null"]

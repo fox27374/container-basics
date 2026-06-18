@@ -12,7 +12,13 @@ This guide is inteded to be used during a instructor-led training. Some chapters
 6) [Build image advanced](doc/Labguide/build-image-advanced.md)
 7) [Push to dockerhub](doc/Labguide/push-to-dockerhub.md)
 8) [Network and DNS](doc/Labguide/network-and-dns.md)
-9) [Docker Compose](doc/Labguide/docker-compose.md)
+9) [Compose](doc/Labguide/compose.md)
 
 
-All commands are tested and based on [Debian 11](https://www.debian.org/). IP addresses and FQDN names are internal lab IPs and names.
+All commands are tested and based on [Ubuntu 24.04](https://ubuntu.com). IP addresses and FQDN names are internal lab IPs and names.
+
+
+SGT tagging for physikal ports
+also available for VLANs?
+Assign SGT to vmware
+can vmware propagate SGTs to ISE

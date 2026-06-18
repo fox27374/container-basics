@@ -11,7 +11,7 @@ Files can be found here: [Lab02](lab/02)
 ### 1. Create a new file called Containerfile and paste the content
 **`vi Containerfile`**  
 ```Containerfile
-FROM nginx:latest
+FROM docker.io/nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 ```
 
