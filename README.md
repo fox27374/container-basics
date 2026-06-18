@@ -17,9 +17,3 @@ This guide is inteded to be used during a instructor-led training. Some chapters
 
 
 All commands are tested and based on [Ubuntu 24.04](https://ubuntu.com). IP addresses and FQDN names are internal lab IPs and names.
-
-
-SGT tagging for physikal ports
-also available for VLANs?
-Assign SGT to vmware
-can vmware propagate SGTs to ISE
