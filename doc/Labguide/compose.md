@@ -11,13 +11,17 @@ services:
   web1:
     image: "docker.io/nginx:alpine"
     volumes:
-      - "$(pwd)/web-content:/usr/share/nginx/html"
+      - type: bind
+        source: "./web-content"
+        target: "/usr/share/nginx/html"
     ports:
       - "8080:80"
 
   web2:
     build:
       dockerfile: Containerfile
+    ports:
+      - "8081:80"
 
   alpine:
     image: "docker.io/alpine:latest"
