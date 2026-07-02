@@ -38,7 +38,7 @@ podman run -d -p 8080:80 docker.io/nginxnginx
 podman run -d -p 8081:80 docker.io/nginxnginx
 ```
 
-### 7. Explore podmanhub 
+### 7. Explore Dockerhub 
 Go to [dockerhub](https://hub.docker.com) and have a look at the Nginx images
 
 ### 8. Start a new container based on a different image tag

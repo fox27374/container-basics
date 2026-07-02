@@ -5,7 +5,7 @@
 | podman | image and container command line interface |
 | vi | the best editor out there |
 ---
-Files can be found here: [Lab02](lab/02)
+Files can be found here: [Lab02](../../lab/02)
 
 ## Tasks
 ### 1. Create a new file called Containerfile and paste the content
