@@ -1,0 +1,7 @@
+FROM docker.io/alpine:latest
+
+RUN apk add iputils
+
+COPY uptime.sh .
+
+CMD ["sh", "uptime.sh"]

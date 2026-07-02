@@ -1,0 +1,20 @@
+FROM docker.io/alpine:3.24.1
+
+RUN apk add --no-cache iputils
+
+# Set variables
+ENV USER=uptimecheck
+ENV GROUP=uptimecheck
+ENV HOME=/home/$USER
+
+# Create user and group
+RUN addgroup $GROUP
+RUN adduser -G $GROUP -h $HOME -D $USER
+
+# Use new directory and user
+WORKDIR $HOME
+USER $USER
+
+COPY --chown=$USER:$GROUP uptime.sh .
+
+CMD ["sh", "uptime.sh"]

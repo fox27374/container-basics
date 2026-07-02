@@ -5,6 +5,7 @@
 | podman | image and container command line interface |
 | vi | the best editor out there |
 ---
+Files can be found here: [Lab06](../../lab/06)
 
 ## Tasks
 ### 1. Create a new file called **uptime.sh** with the content
@@ -43,7 +44,6 @@ vi Containerfile1
 ```dockerfile
 FROM docker.io/alpine:latest
 
-RUN apk update
 RUN apk add iputils
 
 COPY uptime.sh .
@@ -93,15 +93,14 @@ exit
 vi Containerfile2
 ```
 ```dockerfile
-FROM alpine:latest
+FROM docker.io/alpine:3.24.1
 
-RUN apk update
-RUN apk add iputils
+RUN apk add --no-cache iputils
 
 # Set variables
 ENV USER=uptimecheck
 ENV GROUP=uptimecheck
-ENV HOME /home/$USER
+ENV HOME=/home/$USER
 
 # Create user and group
 RUN addgroup $GROUP
