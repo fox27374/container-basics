@@ -1,6 +1,7 @@
 services:
   wordpress:
     image: docker.io/wordpress:7.0.0-php8.3-apache
+    container_name: wordpress
     restart: always
     ports:
       - 8080:80
@@ -14,6 +15,7 @@ services:
 
   db:
     image: docker.io/mysql:8.0
+    container_name: db
     restart: always
     environment:
       MYSQL_DATABASE: wordpress
