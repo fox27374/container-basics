@@ -66,40 +66,31 @@ podman run -d --name uptimecheck1 uptimecheck:1
 podman logs -f uptimecheck1
 ```
 
-### 6. Inspect the running processes
-```bash
-ps -ef | grep uptime
-```
-
-### 7. Exec into the container
+### 6. Exec into the container
 ```bash
 podman exec -it uptimecheck1 /bin/sh
 ```
 
-### 8. Display the running processes in the container
+### 7. Display the running processes in the container
 ```bash
 ps
 ```
 
-### 9. Note the user that is running the "sh uptime.sh" process
+### 8. Note the user that is running the "sh uptime.sh" process
 
-### 10. Exit the container
+### 9. Exit the container
 ```bash
 exit
 ```
 
-### 11. Create a new file called **Containerfile2** and paste the content
+### 10. Create a new file called **Containerfile2** and paste the content
 ```bash
 vi Containerfile2
 ```
 ```dockerfile
 FROM docker.io/alpine:3.24.1
 
-# libcap provides setcap, used below to allow ping as a non-root user
-RUN apk add --no-cache iputils libcap
-
-# Allow the non-root user to open raw ICMP sockets (needed by ping)
-RUN setcap cap_net_raw+ep /bin/ping
+RUN apk add --no-cache iputils
 
 # Set variables
 ENV USER=uptimecheck
@@ -119,18 +110,36 @@ COPY --chown=$USER:$GROUP uptime.sh .
 CMD ["sh", "uptime.sh"]
 ```
 
-### 12. Build the image
+### 11. Build the image
 ```bash
 podman build -t uptimecheck:2 -f Containerfile2 .
 ```
 
-### 13. Run a new container based on the created image and give it a name
+### 12. Run a new container based on the created image and give it a name
 ```bash
 podman run -d --name uptimecheck2 uptimecheck:2
 ```
 
-### 14. Exec into the container and check the processes
+### 13. Exec into the container and check the processes
 ```bash
 podman exec -it uptimecheck2 /bin/sh
 ps
 ```
+
+### 14. Note the user running the process
+
+### 15. Exec into the first container again and install nc and ssh
+```bash
+podman exec -it uptimecheck1 /bin/sh
+apk add --no-cache netcat-openbsd openssh-client
+```
+
+### 16. Scan for open SSH ports
+```bash
+for i in $(seq 1 64); do
+    ( nc -z -w1 10.42.22.$i 22 2>/dev/null && echo "10.42.22.$i: 22 open" ) &
+done
+wait
+```
+
+### 17. Connect to one of the discovered IPs with ssh
