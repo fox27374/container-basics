@@ -6,11 +6,12 @@
 | vi | the best editor out there |
 | mkdir | create a directory |
 ---
+Files can be found here: [Lab04](../../lab/04)
 
 ## Tasks
 ### 1. Stop and delete all running containers
 ```bash
-podman stop CONTAINER_NAME
+podman stop web
 podman container prune
 ```
 

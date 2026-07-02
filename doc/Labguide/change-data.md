@@ -25,9 +25,14 @@ cd /usr/share/nginx/html
 cat index.html
 ```
 
-### 4. Replace line in file 
+### 4. Install text editor
 ```bash
-sed -i 's/NTSLab/XYZXYZ/g' index.html
+apk add nano
 ```
 
-### 5. Check the browser if the content has changed
+### 5. Change the content of the index.html file
+```bash
+nano index.html
+```
+
+### 6. View the changes in your browser
