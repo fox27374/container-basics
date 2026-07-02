@@ -1,6 +1,7 @@
 services:
   web1:
     image: "docker.io/nginx:alpine"
+    container_name: web1
     volumes:
       - type: bind
         source: "./web-content"
@@ -9,6 +10,7 @@ services:
       - "8080:80"
 
   web2:
+    container_name: web2
     build:
       dockerfile: Containerfile
     ports:
@@ -16,4 +18,5 @@ services:
 
   alpine:
     image: "docker.io/alpine:3.24.1"
+    container_name: alpine
     entrypoint: ["/usr/bin/tail", "-f", "/dev/null"]
