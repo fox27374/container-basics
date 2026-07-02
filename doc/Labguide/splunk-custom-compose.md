@@ -2,14 +2,14 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker compose | image and container command line interface |
+| podman-compose | image and container command line interface |
 | vi | the best editor out there |
 ---
 
 ## Tasks
-### 1. Create a new file called docker-compose.yaml and paste the content
+### 1. Create a new file called compose.yaml and paste the content
 ```bash
-vi docker-compose.yaml
+vi compose.yaml
 ```
 ```yaml
 version: "3.8"
@@ -23,7 +23,7 @@ services:
       - "SPLUNK_PASSWORD=testtest123"
 ```
 
-### 2. Run the container with docker compose
+### 2. Run the container with podman-compose
 ```bash
-docker compose up -d
+podman-compose up -d
 ```

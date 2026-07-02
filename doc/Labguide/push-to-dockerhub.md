@@ -2,7 +2,7 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker | image and container command line interface |
+| podman | image and container command line interface |
 ---
 
 ## Tasks
@@ -10,43 +10,43 @@
 
 ### 2. Login to Dockerhub from the CLI
 ```bash
-docker login
+podman login docker.io
 ```
 
 ### 3. Build the image with the corresponding repository tag
 ```bash
-docker build -t DOCKERHUB_NAME/pinger:2 -f Dockerfile2 .
+podman build -t DOCKERHUB_NAME/pinger:2 -f Containerfile2 .
 ```
 
 ### 4. Push the image to Dockerhub
 ```bash
-docker push DOCKERHUB_NAME/pinger:2
+podman push DOCKERHUB_NAME/pinger:2
 ```
 
 ### 5. Check if the image is available in your repository
 
 ### 6. Delete the local image
 ```bash
-docker image rm pinger:2
+podman image rm pinger:2
 ```
 
 ### 7. Stop and delete the running container
 ```bash
-docker stop pinger2
-docker container prune
+podman stop pinger2
+podman container prune
 ```
 
 ### 8. Delete the local image
 ```bash
-docker image rm DOCKERHUB_NAME/pinger:2
+podman image rm DOCKERHUB_NAME/pinger:2
 ```
 
 ### 9. Start a new container with the image from Dockerhub
 ```bash
-docker run -d --name pinger-from-dockerhub DOCKERHUB_NAME/pinger:2
+podman run -d --name pinger-from-dockerhub DOCKERHUB_NAME/pinger:2
 ```
 
 ### 10. Check if the container is running
 ```bash
-docker ps
+podman ps
 ```

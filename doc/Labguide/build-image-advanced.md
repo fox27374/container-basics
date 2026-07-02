@@ -2,7 +2,7 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker | image and container command line interface |
+| podman | image and container command line interface |
 | vi | the best editor out there |
 ---
 
@@ -16,9 +16,9 @@ vi ping.sh
 ping www.google.at
 ```
 
-### 2. Create a new file called **Dockerfile1** and paste the content
+### 2. Create a new file called **Containerfile1** and paste the content
 ```bash
-vi Dockerfile1
+vi Containerfile1
 ```
 ```dockerfile
 FROM alpine:latest
@@ -33,12 +33,12 @@ CMD ["sh", "ping.sh"]
 
 ### 3. Build the image
 ```bash
-docker build -t pinger:1 -f Dockerfile1 .
+podman build -t pinger:1 -f Containerfile1 .
 ```
 
 ### 4. Run a new container based on the created image and give it a name
 ```bash
-docker run -d --name pinger1 pinger:1
+podman run -d --name pinger1 pinger:1
 ```
 
 ### 5. Inspect the running processes
@@ -48,7 +48,7 @@ ps -ef | grep ping
 
 ### 6. Exec into the container
 ```bash
-docker exec -it pinger1 /bin/sh
+podman exec -it pinger1 /bin/sh
 ```
 
 ### 7. Display the running processes in the container
@@ -63,9 +63,9 @@ ps
 ps
 ```
 
-### 10. Create a new file called **Dockerfile2** and paste the content
+### 10. Create a new file called **Containerfile2** and paste the content
 ```bash
-vi Dockerfile2
+vi Containerfile2
 ```
 ```dockerfile
 FROM alpine:latest
@@ -93,16 +93,16 @@ CMD ["sh", "ping.sh"]
 
 ### 11. Build the image
 ```bash
-docker build -t pinger:2 -f Dockerfile2 .
+podman build -t pinger:2 -f Containerfile2 .
 ```
 
 ### 12. Run a new container based on the created image and give it a name
 ```bash
-docker run -d --name pinger2 pinger:2
+podman run -d --name pinger2 pinger:2
 ```
 
 ### 13. Exec into the container and check the processes
 ```bash
-docker exec -it pinger2 /bin/sh
+podman exec -it pinger2 /bin/sh
 ps
 ```

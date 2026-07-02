@@ -2,14 +2,14 @@
 ## Commands
 | Command | Description |
 | --- | --- |
-| docker | image and container command line interface |
+| podman | image and container command line interface |
 | vi | the best editor out there |
 ---
 
 ## Tasks
-### 1. Create a new file called Dockerfile and paste the content
+### 1. Create a new file called Containerfile and paste the content
 ```bash
-vi Dockerfile
+vi Containerfile
 ```
 ```dockerfile
 FROM splunk/splunk:latest
@@ -21,10 +21,10 @@ RUN tar -xvf botsv3_data_set.tgz
 
 ### 2. Build the new image and add a tag
 ```bash
-docker build -t splunk:workshop .
+podman build -t splunk:workshop .
 ```
 
 ### 3. List the newly created image 
 ```bash
-docker image ls
+podman image ls
 ```
