@@ -7,13 +7,33 @@
 ---
 
 ## Tasks
-### 1. Create a new file called **ping.sh** in with the content
+### 1. Create a new file called **uptime.sh** with the content
+This little script does an uptime check of **www.google.at**. It first resolves
+the host via DNS and logs `DNS OK` when it gets entries back, then it runs 5
+pings and logs the mean round-trip time in ms. The check repeats every 30s.
 ```bash
-vi ping.sh
+vi uptime.sh
 ```
 ```bash
 #!/bin/sh
-ping www.google.at
+HOST=www.google.at
+
+while true; do
+    # 1. DNS check
+    if nslookup "$HOST" >/dev/null 2>&1; then
+        echo "$(date '+%Y-%m-%d %H:%M:%S') DNS OK"
+    else
+        echo "$(date '+%Y-%m-%d %H:%M:%S') DNS FAILED"
+        sleep 30
+        continue
+    fi
+
+    # 2. Ping check - mean ms over 5 pings
+    avg=$(ping -c 5 "$HOST" | awk -F'/' '/rtt|round-trip/ {print $5}')
+    echo "$(date '+%Y-%m-%d %H:%M:%S') Ping mean: ${avg} ms"
+
+    sleep 30
+done
 ```
 
 ### 2. Create a new file called **Containerfile1** and paste the content
@@ -21,49 +41,54 @@ ping www.google.at
 vi Containerfile1
 ```
 ```dockerfile
-FROM alpine:latest
+FROM docker.io/alpine:latest
 
 RUN apk update
 RUN apk add iputils
 
-COPY ping.sh .
+COPY uptime.sh .
 
-CMD ["sh", "ping.sh"]
+CMD ["sh", "uptime.sh"]
 ```
 
 ### 3. Build the image
 ```bash
-podman build -t pinger:1 -f Containerfile1 .
+podman build -t uptimecheck:1 -f Containerfile1 .
 ```
 
 ### 4. Run a new container based on the created image and give it a name
 ```bash
-podman run -d --name pinger1 pinger:1
+podman run -d --name uptimecheck1 uptimecheck:1
 ```
 
-### 5. Inspect the running processes
+### 5. Check the container logs to see the uptime check running
 ```bash
-ps -ef | grep ping
+podman logs -f uptimecheck1
 ```
 
-### 6. Exec into the container
+### 6. Inspect the running processes
 ```bash
-podman exec -it pinger1 /bin/sh
+ps -ef | grep uptime
 ```
 
-### 7. Display the running processes in the container
+### 7. Exec into the container
 ```bash
-ps
+podman exec -it uptimecheck1 /bin/sh
 ```
 
-### 8. Note the user that is running the "sh ping.sh" process
-
-### 9. Exit the container
+### 8. Display the running processes in the container
 ```bash
 ps
 ```
 
-### 10. Create a new file called **Containerfile2** and paste the content
+### 9. Note the user that is running the "sh uptime.sh" process
+
+### 10. Exit the container
+```bash
+exit
+```
+
+### 11. Create a new file called **Containerfile2** and paste the content
 ```bash
 vi Containerfile2
 ```
@@ -74,8 +99,8 @@ RUN apk update
 RUN apk add iputils
 
 # Set variables
-ENV USER=pinger
-ENV GROUP=pinger
+ENV USER=uptimecheck
+ENV GROUP=uptimecheck
 ENV HOME /home/$USER
 
 # Create user and group
@@ -86,23 +111,23 @@ RUN adduser -G $GROUP -h $HOME -D $USER
 WORKDIR $HOME
 USER $USER
 
-COPY --chown=$USER:$GROUP ping.sh .
+COPY --chown=$USER:$GROUP uptime.sh .
 
-CMD ["sh", "ping.sh"]
+CMD ["sh", "uptime.sh"]
 ```
 
-### 11. Build the image
+### 12. Build the image
 ```bash
-podman build -t pinger:2 -f Containerfile2 .
+podman build -t uptimecheck:2 -f Containerfile2 .
 ```
 
-### 12. Run a new container based on the created image and give it a name
+### 13. Run a new container based on the created image and give it a name
 ```bash
-podman run -d --name pinger2 pinger:2
+podman run -d --name uptimecheck2 uptimecheck:2
 ```
 
-### 13. Exec into the container and check the processes
+### 14. Exec into the container and check the processes
 ```bash
-podman exec -it pinger2 /bin/sh
+podman exec -it uptimecheck2 /bin/sh
 ps
 ```
