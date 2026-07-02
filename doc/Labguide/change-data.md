@@ -11,15 +11,23 @@
 
 ## Tasks
 ### 1. Open an interactive shell
-**`podman exec -it web /bin/sh`**  
+```bash
+podman exec -it web /bin/sh
+```
 
 ### 2. Navigate to the webserver root directory
-**`cd /usr/share/nginx/html`**
+```bash
+cd /usr/share/nginx/html
+```
 
 ### 3. Display the contents of index.html
-**`cat index.html`**
+```bash
+cat index.html
+```
 
 ### 4. Replace line in file 
-**`sed -i 's/NTSLab/XYZXYZ/g' index.html`**
+```bash
+sed -i 's/NTSLab/XYZXYZ/g' index.html
+```
 
 ### 5. Check the browser if the content has changed

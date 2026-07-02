@@ -9,7 +9,9 @@ Files can be found here: [Lab02](lab/02)
 
 ## Tasks
 ### 1. Create a new file called Containerfile and paste the content
-**`vi Containerfile`**  
+```bash
+vi Containerfile
+```
 ```Containerfile
 FROM docker.io/nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
@@ -60,16 +62,24 @@ COPY index.html /usr/share/nginx/html/index.html
 ```
 
 ### 3. Build the new image and add a tag
-**`podman build -t nginx:nts .`**
+```bash
+podman build -t nginx:nts .
+```
 
 ### 4. List the newly created image 
-**`podman image ls`**
+```bash
+podman image ls
+```
 
 ### 5. Stop and delete all running containers
-**`podman stop CONTAINER_NAME`**\
-**`podman container prune`**
+```bash
+podman stop CONTAINER_NAME
+podman container prune
+```
 
 ### 6. Run a container based on the newly created image
-**`podman run -d -p 8080:80 --name web nginx:nts`**
+```bash
+podman run -d -p 8080:80 --name web nginx:nts
+```
 
 ### 7. Check if the index.html file is displayed in the browser 

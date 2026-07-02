@@ -8,7 +8,9 @@
 
 ## Tasks
 ### 1. Create a new file called docker-compose.yaml and paste the content
-**`vi docker-compose.yaml`**  
+```bash
+vi docker-compose.yaml
+```
 ```yaml
 version: "3.8"
 services:
@@ -22,5 +24,6 @@ services:
 ```
 
 ### 2. Run the container with docker compose
-**`docker compose up -d`**
-
+```bash
+docker compose up -d
+```

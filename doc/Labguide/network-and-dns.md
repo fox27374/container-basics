@@ -7,25 +7,39 @@
 
 ## Tasks
 ### 1. Create two new networks **NET1** and **NET2**
-**`podman network create NET1`**\
-**`podman network create NET2`**
+```bash
+podman network create NET1
+podman network create NET2
+```
 
 ### 2. Start a new nginx container called web1 and attach it to NET1
-**`podman run -d --name web1 --network NET1 docker.io/nginx:alpine`**  
+```bash
+podman run -d --name web1 --network NET1 docker.io/nginx:alpine
+```
 
 ### 3. Interactively start a new busybox and also attach it to NET1
-**`podman run -it --network NET1 --rm docker.io/alpine:latest`**
+```bash
+podman run -it --network NET1 --rm docker.io/alpine:latest
+```
 
 ### 4. From within the container, try to ping web1
-**`ping web1`**
+```bash
+ping web1
+```
 
 ### 5. Exit the container and start it again, attaching it to NET2
-**`podman run -it --network NET2 --rm docker.io/alpine:latest`**
+```bash
+podman run -it --network NET2 --rm docker.io/alpine:latest
+```
 
 ### 6. Try to ping web1 again
-**`ping web1`**
+```bash
+ping web1
+```
 
 ### 7. Remove the networks
-**`podman stop web1`**\
-**`podman container prune`**\
-**`podman network prune`**
+```bash
+podman stop web1
+podman container prune
+podman network prune
+```

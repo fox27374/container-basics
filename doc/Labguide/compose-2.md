@@ -38,14 +38,19 @@ volumes:
 ```
 
 ### 2. Bring the application up
-**`podman-compose up -d`**  
+```bash
+podman-compose up -d
+```
 
 ### 3. Inspect the containers and networks
-**`podman ps`**\
-**`podman network ls`**
+```bash
+podman ps
+podman network ls
+```
 
 ### 4. Check the website of the container and finish the Wordpress setup
 
 ### 5. Delete the application
-**`podman compose down`**
-
+```bash
+podman compose down
+```

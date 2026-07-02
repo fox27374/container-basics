@@ -8,7 +8,9 @@
 
 ## Tasks
 ### 1. Create a new file called Dockerfile and paste the content
-**`vi Dockerfile`**  
+```bash
+vi Dockerfile
+```
 ```dockerfile
 FROM splunk/splunk:latest
 WORKDIR /opt/splunk/etc/apps
@@ -18,7 +20,11 @@ RUN tar -xvf botsv3_data_set.tgz
 ```
 
 ### 2. Build the new image and add a tag
-**`docker build -t splunk:workshop .`**
+```bash
+docker build -t splunk:workshop .
+```
 
 ### 3. List the newly created image 
-**`docker image ls`**
+```bash
+docker image ls
+```
